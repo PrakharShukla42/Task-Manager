@@ -36,8 +36,8 @@ export async function POST(req: Request) {
       message: 'Logged in successfully',
       user: { id: user.id, name: user.name, email: user.email, role: user.role }
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error('Login error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    return NextResponse.json({ error: error?.message || 'Internal server error' }, { status: 500 });
   }
 }
