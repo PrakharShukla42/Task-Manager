@@ -25,7 +25,7 @@ export default function Register() {
         const data = await res.json();
         throw new Error(data.error || "Registration failed");
       }
-      router.push("/dashboard");
+      window.location.href = "/dashboard";
     } catch (err: any) {
       setError(err.message);
     }
